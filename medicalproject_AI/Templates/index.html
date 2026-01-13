@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediClear - Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary-teal: #0d9488; --bg-light: #f9fafb; }
+        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+
+        /* Left Branding Section */
+        .brand-section { flex: 1; background: var(--primary-teal); color: white; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+        .logo { font-size: 28px; font-weight: 700; display: flex; align-items: center; gap: 10px; margin-bottom: 50px; }
+        .logo i { border: 2px solid white; padding: 5px; border-radius: 8px; }
+        .brand-section h1 { font-size: 42px; line-height: 1.2; margin-bottom: 20px; }
+        .brand-section p { font-size: 18px; opacity: 0.9; margin-bottom: 40px; }
+        .feature { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+        .feature-icon { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; }
+
+        /* Right Login Section */
+        .login-section { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; background: white; padding: 40px; }
+        .login-container { width: 100%; max-width: 400px; }
+        .login-container h2 { font-size: 32px; margin-bottom: 10px; }
+        .login-container p { color: #6b7280; margin-bottom: 30px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #9ca3af; }
+        .input-wrapper input { width: 100%; padding: 12px 15px 12px 45px; border: 1px solid #e5e7eb; border-radius: 8px; box-sizing: border-box; font-size: 16px; background: #f9fafb; }
+
+        .options { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; font-size: 14px; }
+        .btn-signin { width: 100%; background: var(--primary-teal); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .btn-signin:hover { background: #0b7a6f; }
+
+        .divider { text-align: center; margin: 30px 0; position: relative; color: #9ca3af; font-size: 14px; }
+        .divider::before, .divider::after { content: ""; position: absolute; top: 50%; width: 35%; height: 1px; background: #e5e7eb; }
+        .divider::before { left: 0; } .divider::after { right: 0; }
+
+        .social-btns { display: flex; gap: 15px; }
+        .social-btn { flex: 1; border: 1px solid #e5e7eb; padding: 10px; border-radius: 8px; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 500; }
+        
+        .signup-link { text-align: center; margin-top: 30px; font-size: 14px; color: #6b7280; }
+        .signup-link a { color: var(--primary-teal); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="brand-section">
+        <div class="logo"><i class="fa-solid fa-heart-pulse"></i> MediClear</div>
+        <h1>Understand Your Medical Reports in Plain English</h1>
+        <p>AI-powered simplification that turns complex medical jargon into clear, actionable insights you can actually understand.</p>
+        
+        <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div><strong>Bank-Level Security</strong><br><small>Your medical data is encrypted and never shared with third parties.</small></div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div><strong>Instant Analysis</strong><br><small>Get your simplified report in seconds, not hours.</small></div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+            <div><strong>Trusted by 50,000+ Patients</strong><br><small>Join thousands who've taken control of their health literacy.</small></div>
+        </div>
+    </div>
+
+    <div class="login-section">
+        <div class="login-container">
+            <h2>Welcome Back</h2>
+            <p>Sign in to access your medical reports</p>
+
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Email Address / Username</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="text" name="username" placeholder="admin@gmail.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password" placeholder="•••••" required>
+                    </div>
+                </div>
+
+                <div class="options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#" style="color: var(--primary-teal); text-decoration: none; font-weight: 500;">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-signin">Sign In</button>
+            </form>
+
+            <div class="divider">Or continue with</div>
+
+            <div class="social-btns">
+                <button class="social-btn"><img src="https://www.google.com/favicon.ico" width="16"> Google</button>
+                <button class="social-btn"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</button>
+            </div>
+
+            <div class="signup-link">
+                Don't have an account? <a href="{% url 'signup' %}">Sign up for free</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

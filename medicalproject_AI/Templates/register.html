@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediClear - Create Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary-teal: #0d9488; }
+        body { font-family: 'Inter', sans-serif; background: #f9fafb; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .register-card { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 400px; }
+        .logo { color: var(--primary-teal); font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        h2 { text-align: center; margin-bottom: 10px; }
+        p { text-align: center; color: #6b7280; margin-bottom: 30px; }
+        form p { margin-bottom: 15px; font-size: 14px; color: #374151; }
+        input { width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; box-sizing: border-box; background: #f9fafb; margin-top: 5px; }
+        .btn-reg { width: 100%; background: var(--primary-teal); color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px; }
+        .helptext { font-size: 11px; color: #9ca3af; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="register-card">
+        <div class="logo"><i class="fa-solid fa-heart-pulse"></i> MediClear</div>
+        <h2>Create Account</h2>
+        <p>Join 50,000+ patients today</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-reg">Create Free Account</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px; font-size: 14px;">
+            Already have an account? <a href="{% url 'login' %}" style="color: var(--primary-teal); font-weight: 600; text-decoration: none;">Sign In</a>
+        </div>
+    </div>
+</body>
+</html>
