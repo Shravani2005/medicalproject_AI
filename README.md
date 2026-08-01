@@ -1,11 +1,12 @@
 # Medical Project AI
 
 ## Description
-This is a Django-based Medical Management System developed during my internship.
+Medical Project AI is a Django-based web application developed during my internship. It manages patient records and uses AI to assist in medical analysis and prediction.
 
 ## Features
 - Patient Registration
 - Patient Record Management
+- AI-based Medical Prediction/Analysis
 - Database Storage
 - User Authentication
 - Django Admin Panel
@@ -13,6 +14,7 @@ This is a Django-based Medical Management System developed during my internship.
 ## Technologies Used
 - Python
 - Django
+- AI/Machine Learning
 - SQLite
 - HTML
 - CSS
